@@ -40,12 +40,13 @@ async def main():
         index = 0
 
     data  = await flow(URL + f"?page={index}" if index > 0 else "")
-
+    print(f"Last pages: {index}")
     index += 1
+
     while data != []:
-        print(f"Last pages: {index}")
         url = URL + f"?page={index}"
         data = await flow(url)
+        print(f"Last pages: {index}")
         index += 1
 
 
